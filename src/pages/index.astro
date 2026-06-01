@@ -35,18 +35,25 @@ const sortedTags = Object.keys(groupedByTag).sort();
 
 <html lang="en">
   <head>
-    <title>philsbookmarks</title>
+    <title>bookmarks</title>
   </head>
-  <body class="p-1">
-    <h1>philsbookmarks</h1>
-    <div class="columns-1 gap-2 xs:columns-2 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5">
+  <body class="p-2">
+    <h1 class="font-bold mb-2">
+        <a href="/">
+            bookmarks
+        </a>
+      </h1>
+    <div class="mb-10 columns-1 gap-2 xs:columns-2 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5">
         {sortedTags.map((tag) => (
         <div class="mb-2">
             <h2 class="font-bold">{tag}</h2>
             <ul>
             {groupedByTag[tag].map((row: any) => (
                 <li>
-                <a href={row.get('url')}>{row.get('title')}</a>
+                    <a class="hover:underline"
+                        href={row.get('url')}>
+                        {row.get('title')}
+                    </a>
                 </li>
             ))}
             </ul>
